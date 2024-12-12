@@ -1,0 +1,3 @@
+curl -X GET "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1" \
+-H "accept: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMzcyODMzMTMyNjY5MjU5NDcwZDczMzc4YjkzNTg1MyIsIm5iZiI6MTczMzg0MTk4NS4xNTUsInN1YiI6IjY3NTg1NDQxNzY4MGIxMTc3ZjNhYmE4ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8P_fO97kV0HtHdiUecvqmACV8bxSlPuj4TpKMWhs5uc"
