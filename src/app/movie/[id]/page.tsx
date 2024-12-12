@@ -2,12 +2,12 @@ import axios from "axios";
 
 const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
-const MovieDetails = async ({
-  params,
-}: {
-  params: { id: string };
-}): Promise<JSX.Element> => {
-  const id = params?.id; // Asegúrate de que params sea válido
+interface MovieDetailsProps {
+  params: Promise<{ id: string }>;
+}
+
+const MovieDetails = async ({ params }: MovieDetailsProps): Promise<JSX.Element> => {
+  const id = (await params)?.id;
 
   if (!id) {
     return (
