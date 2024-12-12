@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Buscador de Películas es una aplicación web que permite buscar información sobre películas utilizando la API de OMDb. Los usuarios pueden ingresar el título de una película y obtener una lista de resultados con detalles como el título, año de lanzamiento y póster de la película agrega a favoritos como mostrar los favoritos.
+Buscador de Películas es una aplicación web que permite buscar información sobre películas utilizando la API de TMBD. Los usuarios pueden ingresar el título de una película y obtener una lista de resultados con detalles como el título, año de lanzamiento y póster de la película agrega a favoritos como mostrar los favoritos.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
