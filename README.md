@@ -42,7 +42,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [OMDb API](http://www.omdbapi.com/)
+- [TMBD API](https://developer.themoviedb.org/docs/getting-started)
 
 ## Requisitos Previos
 
