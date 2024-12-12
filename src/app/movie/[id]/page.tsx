@@ -2,8 +2,22 @@ import axios from "axios";
 
 const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 
-const MovieDetails = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const MovieDetails = async ({
+  params,
+}: {
+  params: { id: string };
+}): Promise<JSX.Element> => {
+  const id = params?.id; // Asegúrate de que params sea válido
+
+  if (!id) {
+    return (
+      <div className="container mx-auto p-4">
+        <h1 className="text-4xl font-bold text-red-400 mb-4">
+          Película no encontrada
+        </h1>
+      </div>
+    );
+  }
 
   try {
     // Obtener los detalles de la película
@@ -18,7 +32,7 @@ const MovieDetails = async ({ params }: { params: { id: string } }) => {
     );
     const movieDetails = movieResponse.data;
 
-    // Obtener los videos relacionados (tráiler)
+    // Obtener videos relacionados (tráiler)
     const videoResponse = await axios.get(
       `https://api.themoviedb.org/3/movie/${id}/videos`,
       {
@@ -64,12 +78,6 @@ const MovieDetails = async ({ params }: { params: { id: string } }) => {
             <p className="text-lg mb-4">
               <strong>Descripción:</strong> {movieDetails.overview}
             </p>
-            <h3 className="text-2xl font-bold text-green-400">Actores:</h3>
-            <ul>
-              {movieDetails.credits?.cast.slice(0, 10).map((actor: any) => (
-                <li key={actor.id}>{actor.name}</li>
-              ))}
-            </ul>
           </div>
         </div>
         {trailerUrl && (
