@@ -53,7 +53,7 @@ Antes de comenzar, asegúrate de tener instalado [Node.js](https://nodejs.org/en
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/mrphaox/buscador_de_peliculas.git
+   git clone https://github.com/mrphaox/BuscadorPeliculas_Tmbd.git
    cd buscador_de_peliculas
 
 
