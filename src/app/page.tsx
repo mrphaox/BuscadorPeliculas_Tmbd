@@ -54,7 +54,7 @@ export default function Home() {
     handleSearch(query, newPage);
   };
 
-  // Enviar consulta de búsqueda
+  // Envio consulta de búsqueda
   const handleSearchSubmit = (searchQuery: string) => {
     setQuery(searchQuery);
     setPage(1);
@@ -64,6 +64,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center">
       <header className="w-full bg-gray-900 text-white py-4 mb-6">
+      <link rel="icon" href="/icono.png" type="image/png" />
         <h1 className="text-center text-3xl font-bold">
           Movie Scorer Explorer
         </h1>

@@ -13,22 +13,36 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>Movie Scorer</title>
+      </head>
       <body className="bg-gray-900 text-white">
         <FavoritesProvider>
           <header className="bg-gray-800">
             <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-             <a href="/" className="hover:text-green-400 transition duration-300">
-             <h1 className="text-3xl font-bold text-green-400">Movie Scorer</h1>
-                    </a>
+              <a
+                href="/"
+                className="hover:text-green-400 transition duration-300"
+              >
+                <h1 className="text-3xl font-bold text-green-400">
+                  Movie Scorer
+                </h1>
+              </a>
               <nav>
                 <ul className="flex space-x-6 text-lg">
                   <li>
-                    <a href="/" className="hover:text-green-400 transition duration-300">
+                    <a
+                      href="/"
+                      className="hover:text-green-400 transition duration-300"
+                    >
                       Popular
                     </a>
                   </li>
                   <li>
-                    <a href="/favorites" className="hover:text-green-400 transition duration-300">
+                    <a
+                      href="/favorites"
+                      className="hover:text-green-400 transition duration-300"
+                    >
                       Favorites
                     </a>
                   </li>
