@@ -24,7 +24,10 @@ const HoverRevealCard: React.FC<HoverRevealCardProps> = ({
 }) => {
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
 
-  const handleFavorite = () => {
+  const handleFavorite = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Detiene la propagación del evento de clic
+    e.preventDefault(); // Evita que el Link navegue al hacer clic en el corazón
+
     if (isFavorite(id)) {
       removeFavorite(id);
     } else {
@@ -39,40 +42,41 @@ const HoverRevealCard: React.FC<HoverRevealCardProps> = ({
   };
 
   return (
-    <Link  href={`/movie/${id}`} passHref>
-    <div className="group relative overflow-hidden rounded-lg shadow-md bg-white border border-gray-300 hover:shadow-lg transition-shadow duration-300">
-      {/* Imagen */}
-      <img
-        src={poster ? `${BASE_IMAGE_URL}${poster}` : "/placeholder.png"}
-        alt={title}
-        className="w-full h-72 object-cover rounded-t-lg transition-transform duration-300 group-hover:scale-105"
-      />
-
-      {/* Información básica */}
-      <div className="p-4">
-        <h2 className="font-semibold text-gray-900 truncate">{title}</h2>
-        <p className="text-sm text-gray-600">{year}</p>
-        <div className="flex justify-between items-center mt-2">
-          <span className="text-sm font-bold text-green-600 bg-green-100 px-2 py-1 rounded-full">
-            {rating.toFixed(1)}%
-          </span>
+    <Link href={`/movie/${id}`} passHref>
+      <div className="group relative overflow-hidden rounded-lg shadow-lg bg-gray-900 border border-gray-700 hover:shadow-xl transition-shadow duration-300">
+        {/* Imagen del Poster */}
+        <div className="relative">
+          <img
+            src={poster ? `${BASE_IMAGE_URL}${poster}` : "/placeholder.png"}
+            alt={title}
+            className="w-full h-80 object-cover transition-transform duration-300 group-hover:scale-110"
+          />
+          {/* Ícono de Favorito */}
           <div
-            className="cursor-pointer text-2xl text-red-500"
-            onClick={handleFavorite}
+            className="absolute top-2 right-2 text-2xl text-red-500 bg-gray-800 bg-opacity-75 rounded-full p-1 cursor-pointer z-10"
+            onClick={handleFavorite} // Maneja el clic aquí
           >
             {isFavorite(id) ? <FaHeart /> : <FaRegHeart />}
           </div>
         </div>
-      </div>
 
-      {/* Información adicional */}
-      <div className="absolute inset-0 bg-white bg-opacity-90 flex flex-col justify-center items-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <h3 className="font-bold text-gray-900 text-lg mb-2">Sinopsis</h3>
-        <p className="text-gray-700 text-sm text-center line-clamp-4">
-          {overview || "No hay sinopsis disponible para esta película."}
-        </p>
+        {/* Información Básica */}
+        <div className="p-4 bg-gray-800">
+          <h2 className="font-bold text-lg text-white truncate">{title}</h2>
+          <p className="text-sm text-gray-400">{year}</p>
+          <div className="flex justify-between items-center mt-3">
+            <span className="text-sm font-bold text-green-500 bg-green-900 px-3 py-1 rounded-full">
+              {rating.toFixed(1)}%
+            </span>
+          </div>
+        </div>
+
+        {/* Información Adicional al Hover */}
+        <div className="absolute inset-0 bg-black bg-opacity-75 p-4 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <h3 className="font-bold text-xl mb-2 text-center">{title}</h3>
+          <p className="text-sm text-center line-clamp-5">{overview || "No hay sinopsis disponible para esta película."}</p>
+        </div>
       </div>
-    </div>
     </Link>
   );
 };

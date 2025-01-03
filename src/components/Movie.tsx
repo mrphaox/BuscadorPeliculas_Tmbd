@@ -32,7 +32,7 @@ const Movie: React.FC<MovieProps> = ({ id, title, year, poster, rating }) => {
 
   return (
     <Link href={`/movie/${id}`}>
-      <div className="flex flex-col items-center p-1 bg-white border border-gray-300 rounded shadow-md w-60 h-96">
+      <div className="flex flex-col items-center p-1 bg-white border border-gray-300 rounded shadow-emerald-300 w-60 h-96">
         <img
           src={poster ? `${BASE_IMAGE_URL}${poster}` : "/placeholder.png"}
           alt={title}
