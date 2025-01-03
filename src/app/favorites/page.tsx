@@ -4,13 +4,17 @@ import { useFavorites } from "../../context/FavoritesContext";
 import Movie from "../../components/Movie";
 
 const Favorites = () => {
-  const { favorites, removeFavorite } = useFavorites();
+  const { favorites } = useFavorites();
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4 text-green-400">My Favorites</h1>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-6 text-green-400">
+        My Favorite Movies
+      </h1>
       {favorites.length === 0 ? (
-        <p className="text-gray-400">No tienes películas favoritas aún.</p>
+        <p className="text-center text-gray-400 text-lg">
+          No tienes películas favoritas aún. ¡Añade algunas para verlas aquí!
+        </p>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {favorites.map((movie) => (

@@ -1,7 +1,15 @@
 import React from "react";
-// es el footer
+
 const Footer = () => {
-  return <p className="text-sm py-2">© 2024 Oscar Neira All rights reserved.</p>;
+  return (
+    <footer className="bg-gray-800 py-4">
+      <div className="container mx-auto px-4">
+        <p className="text-center text-gray-400 text-xs sm:text-sm lg:text-base">
+          © 2024 Movie Scorer. Todos los derechos reservados.
+        </p>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

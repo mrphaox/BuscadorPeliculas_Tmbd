@@ -16,7 +16,10 @@ const BASE_IMAGE_URL = "https://image.tmdb.org/t/p/w500";
 const Movie: React.FC<MovieProps> = ({ id, title, year, poster, rating }) => {
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
 
-  const handleFavorite = () => {
+  const handleFavorite = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Detiene la propagación del evento
+    e.preventDefault(); // Previene la navegación del Link
+
     if (isFavorite(id)) {
       removeFavorite(id);
     } else {
@@ -48,7 +51,7 @@ const Movie: React.FC<MovieProps> = ({ id, title, year, poster, rating }) => {
           </span>
           <div
             className="cursor-pointer text-2xl text-red-500"
-            onClick={handleFavorite}
+            onClick={handleFavorite} // Maneja el clic aquí
           >
             {isFavorite(id) ? <FaHeart /> : <FaRegHeart />}
           </div>
